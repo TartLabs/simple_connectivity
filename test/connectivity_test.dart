@@ -46,7 +46,7 @@ void main() {
 
     test('onConnectivityChanged', () async {
       final ConnectivityResult result =
-          await Connectivity().onConnectivityChanged.first;
+          await Connectivity().onConnectivityChanged!.first;
       expect(result, ConnectivityResult.wifi);
     });
 
