@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:flutter/services.dart';
-import 'package:simple_connectivity/simple_connectivity.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:simple_connectivity/simple_connectivity.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -31,11 +31,11 @@ void main() {
             // TODO(hterkelsen): Remove this when defaultBinaryMessages is in stable.
             // https://github.com/flutter/flutter/issues/33446
             // ignore: deprecated_member_use
-            await BinaryMessages.handlePlatformMessage(
-              Connectivity.eventChannel.name,
-              Connectivity.eventChannel.codec.encodeSuccessEnvelope('wifi'),
-              (_) {},
-            );
+            // await BinaryMessages.handlePlatformMessage(
+            //   Connectivity.eventChannel.name,
+            //   Connectivity.eventChannel.codec.encodeSuccessEnvelope('wifi'),
+            //   (_) {},
+            // );
             break;
           case 'cancel':
           default:
@@ -49,7 +49,6 @@ void main() {
           await Connectivity().onConnectivityChanged.first;
       expect(result, ConnectivityResult.wifi);
     });
-
 
     test('checkConnectivity', () async {
       final ConnectivityResult result =
